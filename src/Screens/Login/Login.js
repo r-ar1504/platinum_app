@@ -1,0 +1,148 @@
+/*-----------------------------------------------------------------
+* Default Components                                              |
+*-----------------------------------------------------------------*/
+import React, {Component} from 'react';
+import { AppRegistry } from 'react-native';
+import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { Container, Header, Body, Left, Right, Content, Button } from 'native-base';
+import { BackHandler, StyleSheet,StatusBar, ImageBackground, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, ActnativeivityIndicator, Alert } from 'react-native';
+import { AccessToken, LoginManager, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
+import firebase from 'react-native-firebase'
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+/*-----------------------------------------------------------------
+* Stylesheet                                                       |
+*-----------------------------------------------------------------*/
+import Style from './LoginStyle';
+
+/*-----------------------------------------------------------------
+* Form Component                                                  |
+*-----------------------------------------------------------------*/
+import LoginForm from './LoginForm';
+
+
+
+export default class Login extends Component{
+  constructor(props){
+    super(props);
+
+    /*Method Binding*/
+    this.login = this.login.bind(this);
+    this.facebookLogin = this.facebookLogin.bind(this);
+    this.googleLogin = this.googleLogin.bind(this);
+    this.newAccount = this.newAccount.bind(this);
+    this.passwordRecovery = this.passwordRecovery.bind(this);
+
+  }//Constructor.
+
+  login(credentials){
+
+    firebase.auth().signInAndRetrieveDataWithEmailAndPassword(credentials.email, credentials.password)
+
+  }
+
+  
+  onBackButtonPressAndroid = () => {
+    return true;
+  };
+
+  componentDidMount(){
+    BackHandler.addEventListener('hardwareBackPress', this.onBackButtonPressAndroid);
+    setTimeout(()=>{
+      this.authSubscription = firebase.auth().onAuthStateChanged((user) => {        
+        if (user) {                                                               
+          this.props.navigation.navigate('Home');                                        
+        }
+        else {
+          this.props.navigation.navigate('Login');
+        }
+      });
+    },1000);
+  }  
+
+  facebookLogin(){
+
+      LoginManager.logInWithReadPermissions(['public_profile', 'email']).then( (result) => {
+
+        if( result.isCancelled ){
+          Alert.alert(
+            'Aviso',
+            'Acción cancelada por el usuario',
+            [
+              {text: 'Entendido', onPress: () => console.log("Cerrar"),}
+            ],
+            { cancelable: false }
+          )
+
+          return "";
+        } 
+
+      AccessToken.getCurrentAccessToken().then( (token_data) =>{
+
+       if ( !token_data) {
+          Alert.alert(
+            'Platinum',
+            'Ha ocurrido un error con el registro, si el problema persiste intenta otro medio de registro.',
+            [
+              {text: 'Entendido', onPress: () => console.log("Cerrar"),}
+            ],
+            { cancelable: false }
+          )
+
+          return "";
+        }
+
+        
+     });
+
+      });
+  
+  }//facebookLogin
+
+  googleLogin(){
+    alert("googleLogin");
+  }//googleLogin
+  newAccount(){
+    this.props.navigation.push('Register');
+  }//newAccount
+  passwordRecovery(){
+    alert("passwordRecovery");
+  }//passwordRecovery
+
+  render(){
+    return(
+      <View>
+      <StatusBar hidden={true}/>
+        <ImageBackground
+          source={ require('src/Assets/Images/login_background.jpg')}
+          style={{
+              width: '100%',
+              height: '100%',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'flex-start'}}>
+          <Image source={ require('src/Assets/Images/logo.png') }  style={Style.logo}/>
+          <LoginForm handleInput={this.login}/>
+
+          <View style={Style.links_container}>
+
+          </View>
+
+          <View style={Style.footer}>
+            <TouchableOpacity onPress={this.newAccount}>
+              <Text style={Style.link_text} >
+                Crear cuenta
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.passwordRecovery}>
+              <Text style={Style.link_text} >
+                ¿Olvidaste tu contraseña?
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
+      </View>
+    )
+  }//Render Method.
+}//Login Component. 
+
