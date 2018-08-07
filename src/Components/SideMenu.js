@@ -50,12 +50,12 @@ export default class SideMenu extends Component{
 
            <View style={style.links_container}>
 
-              <TouchableOpacity onPress={this.openProfile}>
+              {/* <TouchableOpacity onPress={this.openProfile}>
                 <View style={style.link}> 
                   <Icon name="user" size={20} color={'#fff'} style={{paddingTop:5}}/>
                   <Text style={{ fontFamily: 'Lato-Light', color: '#fff', fontSize: 25, marginLeft: 15}}>Perfil</Text>
                 </View>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
 
               <TouchableOpacity onPress={this.openFavorites}>
                 <View style={style.link}> 

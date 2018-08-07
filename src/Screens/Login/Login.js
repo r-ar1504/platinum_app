@@ -37,7 +37,44 @@ export default class Login extends Component{
 
   login(credentials){
 
-    firebase.auth().signInAndRetrieveDataWithEmailAndPassword(credentials.email, credentials.password)
+    firebase.auth().signInAndRetrieveDataWithEmailAndPassword(credentials.email, credentials.password).catch(function(error) {
+      
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(error);
+      
+      if( error.code == "auth/invalid-email"){
+        Alert.alert(
+          'Platinum Times',
+          "The email is not valid",
+          [
+            {text: 'Entendido', onPress: () => console.log('OK Pressed')},
+          ],
+          { cancelable: false }
+        )
+      }
+      else if( error.code == "auth/user-not-found"){
+        Alert.alert(
+          'Platinum Times',
+          "The user doesn't exists",
+          [
+            {text: 'Entendido', onPress: () => console.log('OK Pressed')},
+          ],
+          { cancelable: false }
+        )
+      }
+      else if( error.code == "auth/wrong-password"){
+        Alert.alert(
+          'Platinum Times',
+          "Incorrect Password",
+          [
+            {text: 'Entendido', onPress: () => console.log('OK Pressed')},
+          ],
+          { cancelable: false }
+        )
+      }
+      
+    });
 
   }
 
@@ -134,11 +171,10 @@ export default class Login extends Component{
                 Crear cuenta
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={this.passwordRecovery}>
+            {/* <TouchableOpacity onPress={this.passwordRecovery}>
               <Text style={Style.link_text} >
-                ¿Olvidaste tu contraseña?
               </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </ImageBackground>
       </View>

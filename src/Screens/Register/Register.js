@@ -36,7 +36,7 @@ export default class Register extends Component{
   handleRegister(credentials){
 
     firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(credentials.email, credentials.password).then( response => {
-      
+      console.log(response)
       let registerData = {
         email: credentials.email,
         name: credentials.name,
@@ -56,9 +56,39 @@ export default class Register extends Component{
             firebase_id: response.user.uid})
         })
 
+      }).catch(function(error){
+         if (error.code == "auth/invalid-email") {
+          Alert.alert(
+            'Platinum Times',
+            "The email is not valid",
+            [
+              {text: 'Entendido', onPress: () => console.log('OK Pressed')},
+            ],
+            { cancelable: false }
+          )
+         }
+         else if (error.code == "auth/email-already-in-use") {
+          Alert.alert(
+            'Platinum Times',
+            "The email already exists",
+            [
+              {text: 'Entendido', onPress: () => console.log('OK Pressed')},
+            ],
+            { cancelable: false }
+          )
+         }
+         else if (error.code == "auth/weak-password") {
+          Alert.alert(
+            'Platinum Times',
+            "Password is not strong enough",
+            [
+              {text: 'Entendido', onPress: () => console.log('OK Pressed')},
+            ],
+            { cancelable: false }
+          )
+         }
       });
 
-      this.props.navigation.pop();
 
   }
 

@@ -3,7 +3,7 @@
 *-----------------------------------------------------------------*/
 import React, {Component} from 'react';
 import { Container, Header, Body, Left, Right, Content, Button } from 'native-base';
-import { StyleSheet,StatusBar, TextInput, ImageBackground, TouchableOpacity, View, Text, Image, YellowBox } from 'react-native';
+import { Alert, StyleSheet,StatusBar, TextInput, ImageBackground, TouchableOpacity, View, Text, Image, YellowBox } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 /*-----------------------------------------------------------------
@@ -55,6 +55,31 @@ export default class LoginForm extends Component{
       email: this.refs.login.getComponent('email').getValue(),
       password: this.refs.login.getComponent('password').getValue()
     }
+
+    if(credentials.email == null){
+      Alert.alert(
+        'Platinum Times',
+        'Por favor ingresa tu correo',
+        [
+          {text: 'Entendido', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      )
+      return ;
+    }
+
+    if(credentials.password == null){
+      Alert.alert(
+        'Platinum Times',
+        'Por favor ingresa tu contraseña',
+        [
+          {text: 'Entendido', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      )
+      return ;
+    }
+    
     this.props.handleInput(credentials);
   }
 
