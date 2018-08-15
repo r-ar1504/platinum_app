@@ -15,10 +15,12 @@ export default class Product extends Component{
   constructor(props){
     super(props);
 
+    
     this.state = {
       loading: true,
       clock_data: "",
-      user_id: " "
+      user_id: " ",
+      fav_color: "#fff"
     }
 
     this.goBack = this.goBack.bind(this);
@@ -33,6 +35,12 @@ export default class Product extends Component{
   }
 
   componentDidMount(){
+
+    if (this.props.navigation.getParam('is_fav') != null ) {
+      this.setState({
+        fav_color: "#E7320C"
+      })
+    }
 
     firebase.auth().onAuthStateChanged((user) => {        
       if (user) {                                                               
@@ -72,9 +80,13 @@ export default class Product extends Component{
     })
     .then((response) => response.json())
     .then((responseJson) => {
+
+      this.setState({
+        fav_color: '#E7320C'
+      })
       Alert.alert(
         'Platinum',
-        'Producto Añadido con éxito!',
+        'Succesfully added to favorites!',
         [
           {text: 'Aceptar', onPress: () => console.log("Cerrar"),}
         ],
@@ -157,7 +169,7 @@ export default class Product extends Component{
   .then((responseJson) => {
     Alert.alert(
       'Platinum',
-      'Se ha enviado tu información, espera nuestra pronta respuesta!',
+      "Request succesful, we'll contact you as soon as posible!",
       [
         {text: 'Entendido', onPress: () => console.log("Cerrar"),}
       ],
@@ -264,7 +276,7 @@ export default class Product extends Component{
           <Right >
             <TouchableOpacity onPress={this.addFavorite}>
               <View style={{padding: 15}}>
-               <Icon name="heart" size={30} color={'#fff'} />
+               <Icon name="heart" size={30} color={this.state.fav_color} />
               </View>
             </TouchableOpacity>
           </Right>

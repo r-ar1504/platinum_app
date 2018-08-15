@@ -15,6 +15,7 @@ import Profile from './Screens/Profile/Profile';
 import Favorites from './Screens/Favorites/Favorites';
 import Product from './Screens/Product/Product';
 import Categories from './Screens/Categories/Categories';
+import Search from './Screens/Search/Search';
 import CategoryProducts from './Screens/CategoryProducts/CategoryProducts';
 
 /*-----------------------------------------------------------------
@@ -72,9 +73,12 @@ export default StackNavigator({
   }, 
   Categories:{
     screen: Categories
+  },
+  Search:{
+    screen: Search
   }
 },//StackNavigator Options.
 {
-  initialRouteName: 'Splash',
+  initialRouteName: 'Search',
   headerMode: 'none'
 });//Stack Options);

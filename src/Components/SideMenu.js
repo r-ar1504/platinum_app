@@ -9,10 +9,11 @@ export default class SideMenu extends Component{
   constructor(props){
     super(props);
 
-    this.openProfile = this.openProfile.bind(this);
-    this.openFavorites = this.openFavorites.bind(this);
-    this.openCatalog = this.openCatalog.bind(this);
-    this.signOut = this.signOut.bind(this);
+    this.openProfile     = this.openProfile.bind(this);
+    this.openFavorites   = this.openFavorites.bind(this);
+    this.openCatalog     = this.openCatalog.bind(this);
+    this.signOut         = this.signOut.bind(this);
+    this.openSearch      = this.openSearch.bind(this);
   }
 
   openProfile(){
@@ -27,7 +28,12 @@ export default class SideMenu extends Component{
     this.props.navigation.navigate('Categories');
   }
 
+  openSearch(){
+    this.props.navigation.navigate('Search');
+  }
+
   signOut(){
+    console.log("Here");
     firebase.auth().signOut();
   }
 
@@ -35,12 +41,7 @@ export default class SideMenu extends Component{
     return(
       <Container>
         <Header noShadow style={style.header}>
-          <Left>
-          </Left>
-          <Body>
-          </Body>
-          <Right>
-          </Right>
+
         </Header>
         <Content>
 
@@ -60,23 +61,31 @@ export default class SideMenu extends Component{
               <TouchableOpacity onPress={this.openFavorites}>
                 <View style={style.link}> 
                   <Icon name="heart" size={20} color={'#fff'} style={{paddingTop:5}} />
-                  <Text style={{ fontFamily: 'Lato-Light', color: '#fff', fontSize: 25, marginLeft: 15}}>Favoritos</Text>
+                  <Text style={{ fontFamily: 'Lato-Light', color: '#fff', fontSize: 25, marginLeft: 15}}>Favorites</Text>
                 </View>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={this.openCatalog}>
                 <View style={style.link}> 
                   <Icon name="th-list" size={20} color={'#fff'} style={{paddingTop:5}}/>
-                  <Text style={{ fontFamily: 'Lato-Light', color: '#fff', fontSize: 25, marginLeft: 15}}>Catalogos</Text>
+                  <Text style={{ fontFamily: 'Lato-Light', color: '#fff', fontSize: 25, marginLeft: 15}}>Catalog</Text>
                 </View>
               </TouchableOpacity>
+
+              <TouchableOpacity onPress={this.openSearch}>
+                <View style={style.link}> 
+                  <Icon name="search" size={20} color={'#fff'} style={{paddingTop:5}}/>
+                  <Text style={{ fontFamily: 'Lato-Light', color: '#fff', fontSize: 25, marginLeft: 15}}>Search</Text>
+                </View>
+              </TouchableOpacity>
+              
 
           </View>
     
         </Content>
         <Footer noShadow style={style.footer}>
           <TouchableOpacity onPress={this.signOut}>
-            <Text style={{ fontFamily: 'Lato-Regular', color: '#000', fontSize: 20, marginTop: 5}}>Cerrar Sesión</Text>
+            <Text style={{ fontFamily: 'Lato-Regular', color: '#000', fontSize: 20, marginTop: 5}}>Log Out</Text>
           </TouchableOpacity>
         </Footer>
       </Container>

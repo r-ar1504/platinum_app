@@ -8,6 +8,7 @@ import {  BackHandler, StyleSheet, ActivityIndicator, StatusBar, ImageBackground
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SwipeableParallaxCarousel from 'react-native-swipeable-parallax-carousel';
 import ItemCard from './ItemCard';
+import firebase from 'react-native-firebase'
 
 /*-----------------------------------------------------------------
 * Stylesheet                                                      |
@@ -39,13 +40,23 @@ export default class Home extends Component{
   componentDidMount(){
     this.fetchData();
     BackHandler.addEventListener('hardwareBackPress', this.onBackButtonPressAndroid);
-
+    setTimeout(()=>{
+      this.authSubscription = firebase.auth().onAuthStateChanged((user) => {        
+        if (user) {                                                               
+          this.props.navigation.navigate('Home');                                        
+        }
+        else {
+          this.props.navigation.navigate('Login');
+        }
+      });
+    },1000);
   }
 
   fetchData(){
-    fetch('http://platinum-web.azurewebsites.net/api/getProductsAll',{ method: 'POST',})
+    fetch('http://platinum-web.azurewebsites.net/api/newProducts',{ method: 'POST',})
     .then( (response) => response.json() )
     .then( (response) =>{
+      console.log(response);
       this.setState({
         items : response,
         loading: false
@@ -58,7 +69,7 @@ export default class Home extends Component{
   }
 
   openProduct(product_id){
-    this.props.navigation.navigate('Product', {product_id: product_id});
+    this.props.navigation.navigate('Product', {product_id: product_id, is_fav: null});
   }
 
   renderItems(){
@@ -115,7 +126,7 @@ export default class Home extends Component{
             marginLeft: 25
           }}>
           <Text style={{ fontSize: 20, fontFamily: 'Lato Regular', color: '#000'}}>
-            Mas reciente
+            Most Recent
           </Text>
         </TouchableOpacity>
          < ScrollView  contentContainerStyle={Style.ItemCanvas}>

@@ -3445,6 +3445,10 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
+lodash.isempty@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
+
 lodash.pad@^4.1.0:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/lodash.pad/-/lodash.pad-4.5.1.tgz#4330949a833a7c8da22cc20f6a26c4d59debba70"
@@ -3464,6 +3468,10 @@ lodash.sortby@^4.7.0:
 lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+
+lodash.times@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/lodash.times/-/lodash.times-4.3.2.tgz#3e1f2565c431754d54ab57f2ed1741939285ca1d"
 
 lodash@^3.5.0:
   version "3.10.1"
@@ -4472,6 +4480,15 @@ react-native-easy-grid@0.1.17:
   dependencies:
     lodash "^4.11.1"
 
+react-native-elements@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-0.19.1.tgz#f92b69d864a150215d01f81fe3c52a9cada83e45"
+  dependencies:
+    lodash.isempty "^4.4.0"
+    lodash.times "^4.3.2"
+    opencollective "^1.0.3"
+    prop-types "^15.5.8"
+
 react-native-fbsdk@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-0.7.0.tgz#263dfe5845205de7b80efb0f18ed5c1ded025291"
@@ -4512,6 +4529,10 @@ react-native-pagination@^1.2.8:
   resolved "https://registry.yarnpkg.com/react-native-pagination/-/react-native-pagination-1.2.8.tgz#a6fef181962b8cf662eeb038b126a8bf31cd17d7"
   dependencies:
     react-native-vector-icons "^4.3.0"
+
+react-native-radio-input@^0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/react-native-radio-input/-/react-native-radio-input-0.9.4.tgz#b50cf5e6aa5e11f0c93b607656dd359bd70de518"
 
 react-native-safe-area-view@^0.7.0:
   version "0.7.0"

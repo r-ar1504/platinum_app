@@ -8,7 +8,6 @@ import { StyleSheet, ActivityIndicator, StatusBar, ImageBackground, ScrollView, 
 export default class CategoryRow extends Component{
   constructor(props){
     super(props)
-
     this.openCategory = this.openCategory.bind(this);
   }
 

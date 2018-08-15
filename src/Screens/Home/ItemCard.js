@@ -55,7 +55,7 @@ export default class ItemCard extends Component{
               fontSize: 17,
               fontFamily: 'Lato-Regular',
               paddingRight: 10}}>
-               Detalles >
+               Details >
            </Text>
           </View>
         </TouchableOpacity>
@@ -70,7 +70,7 @@ const { width, height } = Dimensions.get('screen');
 const Style = StyleSheet.create({
   container:{
     width: width*.47,
-    height: 350,
+    height: height*.45,
     borderWidth:  1,
     borderColor: "#cccccc",
     margin: 3,
@@ -80,28 +80,28 @@ const Style = StyleSheet.create({
     
   },
   clock:{
-    paddingTop: 20,
+    paddingTop: 15,
     width: '100%',
-    height: '60%'
+    height: '50%'
   },
   clockDetails:{
     flexDirection: 'row',
     flexWrap: 'nowrap',
-    height:'30%'
+    height:'40%'
   },
   clockDetail:{
     width:'50%',
-    padding: 10,
+    padding: 5,
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
   detailText:{
-    fontSize: 15,
+    fontSize: 13,
     fontFamily: 'Lato-Regular',
     fontWeight: 'bold',
   },
   detailTextBold:{
-    fontSize: 15,
+    fontSize: 13,
     fontFamily: 'Lato-Black',
     color: '#000'
   },

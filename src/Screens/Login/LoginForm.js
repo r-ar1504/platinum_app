@@ -128,7 +128,7 @@ function iconLabelTemplate(locals){
     marginLeft:10,
   }
   var iconStyle = {
-    paddingTop:20,
+    paddingTop:30,
     width: 20,
   }
   var icon = locals.config.iconName;
@@ -153,11 +153,12 @@ function iconLabelTemplate(locals){
 
 const Style = StyleSheet.create({
   button:{
-    marginTop: 50,
+    marginTop: 20,
     backgroundColor: 'transparent',
     borderWidth: 1,
+    alignSelf: 'center',
     borderColor: '#fff',
-    width: 300,
+    width: 250,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
@@ -170,7 +171,7 @@ const Style = StyleSheet.create({
   },
   buttonText:{
     color: '#fff',
-    fontSize: 20,
+    fontSize: 15,
     fontFamily: 'Lato-Light',
   }
 });

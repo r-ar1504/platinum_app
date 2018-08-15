@@ -13,18 +13,22 @@ export default class ClockRow extends Component{
   }
 
   openProduct(){
-    this.props.openProduct(this.props.idProducts);
+    console.log(this.props.idProducts)
+    this.props.openProduct(this.props.data.idProducts);
   }
 
   render(){
     return(
-      <View style={Style.row_container}>
-        <Image source={{uri: "http://platinum-web.azurewebsites.net/" + this.props.data.image}}  style={Style.row_image} />
-        <View style={ Style.clock_info}>
-          <Text style={Style.clock_name}> {this.props.data.name} </Text>
-          <Text style={Style.clock_price}> MXN {this.props.data.price} </Text>
+      <TouchableWithoutFeedback onPress={this.openProduct}>
+        <View style={Style.row_container}>
+          <Image source={{uri: "http://platinum-web.azurewebsites.net/" + this.props.data.image}}  style={Style.row_image} />
+          <View style={ Style.clock_info}>
+            <Text style={Style.clock_name}> {this.props.data.name} </Text>
+            <Text style={Style.clock_price}> MXN {this.props.data.price} </Text>
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
+
     )
   }
 }

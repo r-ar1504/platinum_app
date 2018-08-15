@@ -130,8 +130,7 @@ export default class Favorites extends Component{
   }
 
   openProduct(id){
-    console.log(id)
-    this.props.navigation.navigate('Product', {product_id: id});
+    this.props.navigation.navigate('Product', {product_id: id, is_fav: true});
   }
 
   goBack(){
@@ -150,7 +149,7 @@ export default class Favorites extends Component{
       return(
 
         this.state.favorites_list.map( (item, i) => {
-
+       
           return(
 
             <View key={ item.idProducts } style={Style.swipeableRow}>
@@ -164,7 +163,7 @@ export default class Favorites extends Component{
                   </Button>
                 }
                 body={
-                  <ClockRow data={item} openProduct={this.openProduct}/>
+                    <ClockRow data={item} openProduct={this.openProduct}/>
                 }
                 right={
                   <Button danger onPress={() => this.removeFav(item.idProducts)}>

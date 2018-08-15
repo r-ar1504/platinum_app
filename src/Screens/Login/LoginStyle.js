@@ -6,10 +6,10 @@ export default Style = StyleSheet.create({
     height: '100%',
   },
   logo:{
-    width: 250,
-    height:130,
+    width: 200,
+    height:120,
     alignSelf: 'flex-start',
-    margin: 40
+    margin: 20
   },
   login_image:{
     width: 40,
@@ -17,15 +17,15 @@ export default Style = StyleSheet.create({
     margin: 5
   },
   links_container:{
-    marginTop: 50,
+    marginTop: 30,
     alignSelf: 'flex-end',
-    width: 300,
+    width: 250,
     flexDirection: 'row',
     flexWrap: 'nowrap'
   },
   link_text:{
     color: '#fff',
-    fontSize: 20,
+    fontSize: 19,
     padding: 10,
     fontFamily: 'Lato-Light'
   },
