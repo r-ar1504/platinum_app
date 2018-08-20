@@ -210,7 +210,7 @@ export default class Favorites extends Component{
           
           <View style={Style.title} scrollable>
             <Text style={Style.title_text}>
-              Productos Favoritos
+               Favorites
             </Text>
           </View>
           <ScrollView contentContainerStyle={Style.favorites_list}>

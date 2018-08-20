@@ -130,7 +130,7 @@ export default class Register extends Component{
         </Header>
         <Content contentContainerStyle={Style.container}>
           <Text style={Style.headerText}>
-            REGISTRATE
+            REGISTER
           </Text>
           <RegisterForm  handleRegister={this.handleRegister}/>
         </Content>

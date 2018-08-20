@@ -79,6 +79,6 @@ export default StackNavigator({
   }
 },//StackNavigator Options.
 {
-  initialRouteName: 'Search',
+  initialRouteName: 'Login',
   headerMode: 'none'
 });//Stack Options);

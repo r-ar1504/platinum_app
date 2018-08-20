@@ -168,7 +168,7 @@ export default class Login extends Component{
           <View style={Style.footer}>
             <TouchableOpacity onPress={this.newAccount}>
               <Text style={Style.link_text} >
-                Crear cuenta
+                Create Account
               </Text>
             </TouchableOpacity>
             {/* <TouchableOpacity onPress={this.passwordRecovery}>

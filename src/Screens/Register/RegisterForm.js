@@ -29,28 +29,28 @@ const options = {
   fields:{
     name:{
       template: iconLabelTemplate,
-      label: 'NOMBRE',
+      label: 'NAME',
       config:{
         hiddenText: false
       }
     },
     email:{
       template: iconLabelTemplate,
-      label: 'CORREO ELECTRONICO',
+      label: 'EMAIL',
       config:{
         hiddenText: false
       }
     },
     password:{
       template: iconLabelTemplate,
-      label: 'CONTRASEÑA',
+      label: 'PASSWORD',
       config:{
         hiddenText: true
       },
     },
     passwordConf:{
       template: iconLabelTemplate,
-      label: 'CONFIRMAR CONTRASEÑA',
+      label: 'CONFIRM PASSWORD',
       config:{
         hiddenText: true
       }
@@ -83,7 +83,7 @@ export default class RegisterForm extends Component{
         <TouchableOpacity onPress={this.getInput}>
           <View style={Style.button}>
             <Text style={Style.buttonText}>
-              CREAR CUENTA
+              CREATE ACCOUNT
             </Text>
           </View>
         </TouchableOpacity>
@@ -94,7 +94,7 @@ export default class RegisterForm extends Component{
 
 function iconLabelTemplate(locals){
   var containerStyle ={
-    marginTop: 10,
+    marginTop: 5,
     width: 300,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
@@ -112,14 +112,14 @@ function iconLabelTemplate(locals){
     textDecorationLine: 'none'
   }
   var labelStyle = {
-    paddingTop: 20,
+    paddingTop: 10,
     width: 240,
     color: '#000',
     fontSize: 17,
     fontFamily: 'Lato-Regular',
   }
   var iconStyle = {
-    paddingTop:20,
+    paddingTop:15,
     width: 20,
   }
   var icon = locals.config.iconName;

@@ -27,7 +27,7 @@ const options = {
   fields:{
     email:{
       template: iconLabelTemplate,
-      label: 'Correo Electronico',
+      label: 'EMAIL',
       config:{
         hiddenText: false,
         iconName: "user"
@@ -35,7 +35,7 @@ const options = {
     },
     password:{
       template: iconLabelTemplate,
-      label: 'Contraseña',
+      label: 'PASSWORD',
       config:{
         hiddenText: true,
         iconName: "lock"
@@ -90,7 +90,7 @@ export default class LoginForm extends Component{
         <TouchableOpacity onPress={this.getInput}>
           <View style={Style.button}>
             <Text style={Style.buttonText}>
-              INGRESAR
+              LOG IN
             </Text>
           </View>
         </TouchableOpacity>
