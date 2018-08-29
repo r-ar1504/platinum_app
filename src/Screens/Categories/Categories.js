@@ -20,6 +20,7 @@ export default class Categories extends Component{
     }
 
     this.openCategory = this.openCategory.bind(this);
+    this.goBack       = this.goBack.bind(this);
   }
 
 
@@ -31,6 +32,10 @@ export default class Categories extends Component{
   componentDidMount(){
     BackHandler.addEventListener('hardwareBackPress', this.onBackButtonPressAndroid);
     this.fetchData();
+  }
+
+  goBack(){
+    this.props.navigation.navigate('Home');
   }
 
   fetchData(){
@@ -81,7 +86,7 @@ export default class Categories extends Component{
       <StatusBar hidden={true}/>
         <Header style={Style.header}>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={this.goBack}>
             <Left  style={{flex: 1}}>
               <View style={{padding: 15}}>
                 <Icon name="chevron-left" size={30} color={'#000'} />

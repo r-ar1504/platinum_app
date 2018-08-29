@@ -35,8 +35,6 @@ export default class Home extends Component{
     return true;
   };
 
-
-
   componentDidMount(){
     this.fetchData();
     BackHandler.addEventListener('hardwareBackPress', this.onBackButtonPressAndroid);
@@ -144,18 +142,18 @@ export default class Home extends Component{
 const datacarousel = [
   {
     "id": 1,
-    "title": "ALGO ELEGANTE",
-    "imagePath": "https://des.gbtcdn.com/uploads/pdm-desc-pic/Electronic/image/2017/10/27/15090975277855.jpg"
+    "title": "Your investment journey starts here",
+    "imagePath": "https://pidelotu.azurewebsites.net/images/banner1.jpeg"
   },
   {
     "id": 2,
-    "title": "ALGO ELEGANTE",
-    "imagePath": "https://des.gbtcdn.com/uploads/pdm-desc-pic/Electronic/image/2017/10/27/15090975277855.jpg"
+    "title": "Your investment journey starts here",
+    "imagePath": "https://pidelotu.azurewebsites.net/images/banner2.jpeg"
   },
   {
     "id": 3,
-    "title": "ALGO ELEGANTE",
-    "imagePath": "https://des.gbtcdn.com/uploads/pdm-desc-pic/Electronic/image/2017/10/27/15090975277855.jpg"
+    "title": "Your investment journey starts here",
+    "imagePath": "https://pidelotu.azurewebsites.net/images/banner3.png"
   }
 ]
 

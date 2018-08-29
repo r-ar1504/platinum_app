@@ -113,6 +113,7 @@ export default class Product extends Component{
     })
     .then((response) => response.json())
     .then((responseJson) => {
+      console.log(responseJson);
       this.setState({
         clock_data: responseJson,
         loading: false
@@ -132,6 +133,7 @@ export default class Product extends Component{
       })
       .then((response) => response.json())
       .then((responseJson) => {
+
         this.setState({
           user: responseJson.data,
           loading: false
@@ -215,21 +217,30 @@ export default class Product extends Component{
               
               <View style={Style.features_section}>
                 <Text style={Style.features_text}>
-                  Color
+                  Series
                 </Text>
                 <Text style={Style.features_text}>
-                  Modelo
+                  Model
                 </Text>       
                 <Text style={Style.features_text}>
-                  Estilo
+                  Movement
                 </Text>     
                 <Text style={Style.features_text}>
-                  Disponibilidad
+                  Case Material
+                </Text>  
+                <Text style={Style.features_text}>
+                  Dial
+                </Text>  
+                <Text style={Style.features_text}>
+                  Condition
+                </Text>  
+                <Text style={Style.features_text}>
+                  Bracelet Material
                 </Text>  
               </View>
               
               <View style={Style.features_section_right}>
-                <Text style={Style.features_content}>
+                  <Text style={Style.features_content}>
                     {this.state.clock_data.color}
                   </Text>
                   <Text style={Style.features_content}>
@@ -240,7 +251,16 @@ export default class Product extends Component{
                   </Text>     
                   <Text style={Style.features_content}>
                     {this.state.clock_data.status}
-                  </Text>  
+                  </Text>     
+                  <Text style={Style.features_content}>
+                    {this.state.clock_data.status}
+                  </Text>     
+                  <Text style={Style.features_content}>
+                    {this.state.clock_data.status}
+                  </Text>      
+                  <Text style={Style.features_content}>
+                    {this.state.clock_data.status}
+                  </Text> 
               </View>
 
             </View>
@@ -248,7 +268,7 @@ export default class Product extends Component{
             <TouchableOpacity onPress={this.addToCart}>
               <View style={Style.cart_button}>
                 <Text style={{color: '#fff', fontSize: 20, fontFamily: 'Lato-Regular'}}>
-                  Cotizar
+                  Quote
                 </Text>
               </View>
             </TouchableOpacity>

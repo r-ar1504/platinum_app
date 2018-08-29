@@ -79,7 +79,7 @@ export default Style = StyleSheet.create({
   },
   content_feature:{
     width:'50%',
-    height: 300,
+    height: 350,
   },
   title_feature_text:{
     marginLeft: 10,
@@ -106,7 +106,7 @@ export default Style = StyleSheet.create({
   },
   clock_features:{
     width: '75%',
-    height: 300,
+    height: 350,
     backgroundColor: '#fff',
     borderRadius: 10,
     flexDirection: 'row'
