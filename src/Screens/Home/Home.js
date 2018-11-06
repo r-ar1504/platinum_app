@@ -143,7 +143,7 @@ const datacarousel = [
   {
     "id": 1,
     "title": "Your investment journey starts here",
-    "imagePath": "https://pidelotu.azurewebsites.net/images/banner1.jpeg"
+    "imagePath": "http://pidelotu.azurewebsites.net/images/banner1.jpeg"
   },
   {
     "id": 2,

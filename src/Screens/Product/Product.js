@@ -163,7 +163,7 @@ export default class Product extends Component{
     body: JSON.stringify({
       email: this.state.user.email,
       name:  this.state.user.name,
-      phone: " 1",
+      phone: "1",
       product_id: this.state.clock_data.idProducts
     })
   })
@@ -200,7 +200,7 @@ export default class Product extends Component{
 
             <View style={Style.price_container}>
                 <Text style={Style.price_text}>
-                {this.state.clock_data.coint} {this.state.clock_data.public_price}
+                  $ {this.state.clock_data.public_price} USD
                 </Text>
             </View>
 
@@ -217,25 +217,16 @@ export default class Product extends Component{
               
               <View style={Style.features_section}>
                 <Text style={Style.features_text}>
-                  Series
+                  Color
                 </Text>
                 <Text style={Style.features_text}>
-                  Model
+                  Gender
                 </Text>       
                 <Text style={Style.features_text}>
-                  Movement
+                  Status
                 </Text>     
                 <Text style={Style.features_text}>
-                  Case Material
-                </Text>  
-                <Text style={Style.features_text}>
-                  Dial
-                </Text>  
-                <Text style={Style.features_text}>
-                  Condition
-                </Text>  
-                <Text style={Style.features_text}>
-                  Bracelet Material
+                  Description
                 </Text>  
               </View>
               
@@ -244,24 +235,15 @@ export default class Product extends Component{
                     {this.state.clock_data.color}
                   </Text>
                   <Text style={Style.features_content}>
-                    {this.state.clock_data.model}
+                    {this.state.clock_data.gender}
                   </Text>       
                   <Text style={Style.features_content}>
-                    {this.state.clock_data.style}
-                  </Text>     
-                  <Text style={Style.features_content}>
                     {this.state.clock_data.status}
                   </Text>     
                   <Text style={Style.features_content}>
-                    {this.state.clock_data.status}
+                    {this.state.clock_data.description}
                   </Text>     
-                  <Text style={Style.features_content}>
-                    {this.state.clock_data.status}
-                  </Text>      
-                  <Text style={Style.features_content}>
-                    {this.state.clock_data.status}
-                  </Text> 
-              </View>
+             </View>
 
             </View>
 

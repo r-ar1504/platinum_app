@@ -17,6 +17,10 @@ import Product from './Screens/Product/Product';
 import Categories from './Screens/Categories/Categories';
 import Search from './Screens/Search/Search';
 import CategoryProducts from './Screens/CategoryProducts/CategoryProducts';
+import UploadWatch from './Screens/UploadWatch/UploadWatch';
+import CameraComp from './Components/CameraComp';
+
+
 
 /*-----------------------------------------------------------------
 * Drawer Navigator                                                |
@@ -45,6 +49,12 @@ const HomeDrawer = DrawerNavigator({
   },
   CategoryProducts:{
     screen: CategoryProducts
+  },
+  UploadWatch:{
+    screen: UploadWatch
+  },
+  CameraComp:{
+    screen: CameraComp
   }
 },
   {
@@ -76,6 +86,9 @@ export default StackNavigator({
   },
   Search:{
     screen: Search
+  },
+  UploadWatch:{
+    screen: UploadWatch
   }
 },//StackNavigator Options.
 {

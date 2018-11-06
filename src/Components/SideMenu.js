@@ -38,11 +38,11 @@ export default class SideMenu extends Component{
   }
 
   openSell(){
-
+    this.props.navigation.navigate('UploadWatch');
   }
   
   goToInsta(){
-    Linking.openURL('https://www.facebook.com/platinumtimeco/')
+    Linking.openURL('https://www.instagram.com/platinumtimesco')
   }
 
   goToFb(){
@@ -53,7 +53,7 @@ export default class SideMenu extends Component{
     Linking.openURL('http://platinum-web.azurewebsites.net/login')
   }
   goToUs(){
-    Linking.openURL('mailto:platinum@example.com')
+    Linking.openURL('mailto:platinumtimeco@gmail.com')
   }
   signOut(){
     console.log("Here");

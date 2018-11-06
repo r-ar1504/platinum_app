@@ -6,7 +6,6 @@ import { AppRegistry } from 'react-native';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import { Container, Header, Body, Left, Right, Content, Button } from 'native-base';
 import { BackHandler, StyleSheet,StatusBar, ImageBackground, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, ActnativeivityIndicator, Alert } from 'react-native';
-import { AccessToken, LoginManager, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
 import firebase from 'react-native-firebase'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -96,45 +95,6 @@ export default class Login extends Component{
       });
     },1000);
   }  
-
-  facebookLogin(){
-
-      LoginManager.logInWithReadPermissions(['public_profile', 'email']).then( (result) => {
-
-        if( result.isCancelled ){
-          Alert.alert(
-            'Aviso',
-            'Acción cancelada por el usuario',
-            [
-              {text: 'Entendido', onPress: () => console.log("Cerrar"),}
-            ],
-            { cancelable: false }
-          )
-
-          return "";
-        } 
-
-      AccessToken.getCurrentAccessToken().then( (token_data) =>{
-
-       if ( !token_data) {
-          Alert.alert(
-            'Platinum',
-            'Ha ocurrido un error con el registro, si el problema persiste intenta otro medio de registro.',
-            [
-              {text: 'Entendido', onPress: () => console.log("Cerrar"),}
-            ],
-            { cancelable: false }
-          )
-
-          return "";
-        }
-
-        
-     });
-
-      });
-  
-  }//facebookLogin
 
   googleLogin(){
     alert("googleLogin");
