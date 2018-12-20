@@ -7,7 +7,8 @@ export default Style = StyleSheet.create({
   header:{
     backgroundColor: 'transparent',
     margin: 0,
-    elevation: 0
+    elevation: 0,
+    borderBottomWidth: 0
   },
   container:{
     backgroundColor: '#000',

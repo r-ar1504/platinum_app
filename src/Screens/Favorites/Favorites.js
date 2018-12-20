@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import firebase from 'react-native-firebase'
 
 import Style from './FavoritesStyle';
-import ClockRow from 'src/Components/ClockRow';
+import ClockRow from '../../Components/ClockRow';
 
 export default class Favorites extends Component{
   constructor(props){
@@ -190,8 +190,8 @@ export default class Favorites extends Component{
 
           <TouchableOpacity onPress={this.goBack}>
             <Left  style={{flex: 1}}>
-              <View style={{padding: 15}}>
-                <Icon name="chevron-left" size={30} color={'#000'} />
+              <View style={{padding: 5}}>
+                <Icon name="chevron-left" size={20} color={'#000'} />
               </View>
             </Left>
           </TouchableOpacity>

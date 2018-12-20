@@ -82,7 +82,7 @@ export default class RegisterForm extends Component{
         <Form type={User} options={options} ref="login"/>
         <TouchableOpacity onPress={this.getInput}>
           <View style={Style.button}>
-            <Text style={Style.buttonText}>
+            <Text style={{ color: '#fff'}}>
               CREATE ACCOUNT
             </Text>
           </View>
@@ -151,8 +151,6 @@ const Style = StyleSheet.create({
     borderBottomRightRadius: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    padding: 25
-
   },
   buttonText:{
     color: '#fff',

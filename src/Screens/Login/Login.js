@@ -27,7 +27,6 @@ export default class Login extends Component{
 
     /*Method Binding*/
     this.login = this.login.bind(this);
-    this.facebookLogin = this.facebookLogin.bind(this);
     this.googleLogin = this.googleLogin.bind(this);
     this.newAccount = this.newAccount.bind(this);
     this.passwordRecovery = this.passwordRecovery.bind(this);
@@ -111,14 +110,14 @@ export default class Login extends Component{
       <View>
       <StatusBar hidden={true}/>
         <ImageBackground
-          source={ require('src/Assets/Images/login_background.jpg')}
+          source={ require('../../Assets/Images/login_background.jpg')}
           style={{
               width: '100%',
               height: '100%',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'flex-start'}}>
-          <Image source={ require('src/Assets/Images/logo.png') }  style={Style.logo}/>
+          <Image source={ require('../../Assets/Images/logo.png') }  style={Style.logo}/>
           <LoginForm handleInput={this.login}/>
 
           <View style={Style.links_container}>

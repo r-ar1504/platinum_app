@@ -22,7 +22,7 @@ export default class Splash extends Component{
   render(){
     return(
       <View style={{width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center', backgroundColor: '#000'}}>
-        <Image source={require('src/Assets/Images/logo.png')} style={{width: 200, height:120}} />
+        <Image source={require('../../Assets/Images/logo.png')} style={{width: 200, height:120}} />
       </View>
     )
   }

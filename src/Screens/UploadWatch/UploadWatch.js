@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, Alert } from 'react-native';
 import { Container, Header, Body, Left, Right, Content } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import RenderThumbnails from 'src/Components/RenderThumbnails';
+import RenderThumbnails from '../../Components/RenderThumbnails';
 import Style from './UploadWatchStyle';
 import CameraComp from '../../Components/CameraComp';
 
@@ -23,10 +23,11 @@ export default class UploadWatch extends Component {
     this.renderContent     = this.renderContent.bind(this);
     this.takePicture       = this.takePicture.bind(this);
     this.pictureTaken      = this.pictureTaken.bind(this);
+    this.sendData          = this.sendData.bind(this);
   }
 
   goBack(){
-
+    this.props.navigation.navigate('Home');
   }
 
   //Save Photo From Camera Component.
@@ -39,9 +40,9 @@ export default class UploadWatch extends Component {
   }
 
   takePicture(){
-    // this.setState({
-    //   cameraActive: true
-    // })
+    this.setState({
+      cameraActive: true
+    })
   }
 
   pictureTaken(photo_uri){
@@ -51,6 +52,58 @@ export default class UploadWatch extends Component {
     })
 
     console.log(this.state)
+  }
+
+  //Upload Form Data
+  sendData(){
+    //console.warn(this.state);
+    var data = new FormData();
+    if (this.state.thumbnail != null) {
+      data.append('image',{
+        uri: this.state.thumbnail,
+        name: 'watch.jpg',
+        type: 'image/jpg'
+      });
+  
+      data.append('boxes',this.state.boxes)
+      data.append('brand',this.state.brand)
+      data.append('comments',this.state.comments)
+      data.append('desired_amount',this.state.desired_amount)
+      data.append('reference',this.state.reference)
+  
+      fetch('http://platinum-web.azurewebsites.net/sellMyWatch',{
+        method: 'POST',
+        headers:{
+         'Accept': 'application/json',
+         'Content-Type': 'multipart/form-data;',
+        },
+        body: data
+      }).then((response) => response.json())
+      .then((responseJson) => {
+  
+        this.setState({
+          fav_color: '#E7320C'
+        })
+        Alert.alert(
+          'Platinum',
+          'Offer sent!',
+          [
+            {text: 'Accept', onPress: () => console.log("Cerrar"),}
+          ],
+          { cancelable: false }
+        )
+      });
+    }else{
+      Alert.alert(
+        'Platinum',
+        'Please complete all fields before sending!',
+        [
+          {text: 'Accept', onPress: () => console.log("Cerrar"),}
+        ],
+        { cancelable: false }
+      )
+    }
+ 
   }
   
   //Render Camera/Form depending on {this.state.cameraActive = true/false }
@@ -63,8 +116,8 @@ export default class UploadWatch extends Component {
       
               <TouchableOpacity onPress={this.goBack}>
                 <Left  style={{flex: 1}}>
-                  <View style={{padding: 15}}>
-                    <Icon name="chevron-left" size={30} color={'#fff'} />
+                  <View style={{padding: 5}}>
+                    <Icon name="chevron-left" size={20} color={'#fff'} />
                   </View>
                 </Left>
               </TouchableOpacity>
@@ -137,9 +190,9 @@ export default class UploadWatch extends Component {
 
               </View>
               <View>
-                <TouchableOpacity onPress={this.sendData} style={{backgroundColor: '#fff'}}>
-                  <View style={{height: 50  }}>
-                    <Text>Send Offer</Text>
+                <TouchableOpacity onPress={this.sendData} style={{backgroundColor: '#000', padding: 10}}>
+                  <View style={{height: 50, color: '#fff'  }}>
+                    <Text style={{color:'#fff'}}>Send Offer</Text>
                   </View>
                 </TouchableOpacity>
               </View>

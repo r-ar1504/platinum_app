@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import { Container, Header, Body, Left, Right, Content, Button } from 'native-base';
-import {  BackHandler, StyleSheet, ActivityIndicator, StatusBar, ImageBackground, ScrollView, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, ActnativeivityIndicator, Alert } from 'react-native';
+import {  BackHandler, StyleSheet, ActivityIndicator, StatusBar, ImageBackground, ScrollView, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, SafeAreaView, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SwipeableParallaxCarousel from 'react-native-swipeable-parallax-carousel';
 import ItemCard from './ItemCard';
@@ -74,9 +74,7 @@ export default class Home extends Component{
     if( this.state.loading ){
       return(
         <View style={ Style.loadingCanvas }>
-
           <ActivityIndicator  accessibilityTraits="text" size="large" color="#000" style={Style.loading}/>
-
         </View>
       )
     }else{
@@ -96,44 +94,46 @@ export default class Home extends Component{
 
   render(){
     return(
-      <Container style={{backgroundColor: '#fff'}}>
-      <StatusBar hidden={true}/>
-        <Header style={Style.header}>
-          <TouchableOpacity onPress={this.openDrawer}> 
-            <Left>
-              <Icon name="align-justify" color="#1a1a1a" size={30} />
-            </Left>
-          </TouchableOpacity> 
-          <Body>
-          </Body>
-          <Right>
-          </Right>
-        </Header>
-        <Content>
-          <SwipeableParallaxCarousel
-            data={datacarousel}
-            titleColor={"#fff"}
-            height={300}
-          />
-        <TouchableOpacity 
-          style={{
-            width: '100%',
-            height: 60,
-            justifyContent: 'center',
-            alignItems: 'flex-start',
-            marginLeft: 25
-          }}>
-          <Text style={{ fontSize: 20, fontFamily: 'Lato Regular', color: '#000'}}>
-            Most Recent
-          </Text>
-        </TouchableOpacity>
-         < ScrollView  contentContainerStyle={Style.ItemCanvas}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff'}}>
+        <Container style={{backgroundColor: '#fff'}}>
+        <StatusBar hidden={true}/>
+          <Header noShadow style={Style.header}>
+            <TouchableOpacity onPress={this.openDrawer}> 
+              <Left>
+                <Icon name="align-justify" color="#1a1a1a" size={25} />
+              </Left>
+            </TouchableOpacity> 
+            <Body>
+            </Body>
+            <Right>
+            </Right>
+          </Header>
+          <Content>
+            <SwipeableParallaxCarousel
+              data={datacarousel}
+              titleColor={"#fff"}
+              height={300}
+            />
+          <TouchableOpacity 
+            style={{
+              width: '100%',
+              height: 60,
+              justifyContent: 'center',
+              alignItems: 'flex-start',
+              marginLeft: 25
+            }}>
+            <Text style={{ fontSize: 20, fontFamily: 'Lato-Regular', color: '#000'}}>
+              Most Recent
+            </Text>
+          </TouchableOpacity>
+          < ScrollView  contentContainerStyle={Style.ItemCanvas}>
 
-          { this.renderItems() }
+            { this.renderItems() }
 
-        </ScrollView>
-        </Content>
-      </Container>
+          </ScrollView>
+          </Content>
+        </Container>
+      </SafeAreaView>
     )
   }//Render.
 }//Home component.

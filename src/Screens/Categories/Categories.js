@@ -8,7 +8,7 @@ import { BackHandler,StyleSheet,StatusBar, ImageBackground, ScrollView, Touchabl
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Style from './CategoriesStyle';
 
-import CategoryRow from 'src/Components/CategoryRow';
+import CategoryRow from '../../Components/CategoryRow';
 
 export default class Categories extends Component{
   constructor(props){
@@ -88,8 +88,8 @@ export default class Categories extends Component{
 
           <TouchableOpacity onPress={this.goBack}>
             <Left  style={{flex: 1}}>
-              <View style={{padding: 15}}>
-                <Icon name="chevron-left" size={30} color={'#000'} />
+              <View style={{padding: 5}}>
+                <Icon name="chevron-left" size={20} color={'#000'} />
               </View>
             </Left>
           </TouchableOpacity>
@@ -107,8 +107,8 @@ export default class Categories extends Component{
         <Content>
           
           <View style={Style.title} scrollable>
-            <Text style={Style.title_text}>
-              Categorías
+            <Text st  yle={Style.title_text}>
+              Categories
             </Text>
           </View>
           <ScrollView contentContainerStyle={Style.favorites_list}>

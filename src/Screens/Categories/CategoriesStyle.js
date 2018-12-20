@@ -2,9 +2,13 @@ import { StyleSheet } from 'react-native';
 
 export default Style = StyleSheet.create({
   header:{
-    backgroundColor: '#fff',
-    margin: 0,
-    elevation: 0
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 0,
+    shadowColor: 'transparent',
+    zIndex: 1000,
+    minHeight: 10
   },
   title:{
     width: '100%',

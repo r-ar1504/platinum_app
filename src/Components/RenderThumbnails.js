@@ -23,7 +23,7 @@ export default class RenderThumbnails extends Component {
       return(
         <TouchableOpacity onPress={this.takePicture}>
           <View style={Style.imageContainerPlaceholder}>
-            <Image source={require('src/Assets/Images/placeholder.png')} style={Style.placeholder}/>
+            <Image source={require('../Assets/Images/placeholder.png')} style={Style.placeholder}/>
           </View>
         </TouchableOpacity>
       )

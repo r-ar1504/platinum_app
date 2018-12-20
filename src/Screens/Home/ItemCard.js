@@ -38,7 +38,7 @@ export default class ItemCard extends Component{
           </View>
 
           <View style={Style.clockDetail}>
-            <Text style={Style.detailTextBold}>{this.state.clock.coint} {this.state.clock.public_price}</Text>
+            <Text style={Style.detailTextBold}> $ {this.state.clock.public_price} USD</Text>
           </View>
 
         </View>
@@ -101,7 +101,7 @@ const Style = StyleSheet.create({
     fontWeight: 'bold',
   },
   detailTextBold:{
-    fontSize: 13,
+    fontSize: 11,
     fontFamily: 'Lato-Black',
     color: '#000'
   },

@@ -100,10 +100,10 @@ export default class CategoryProducts extends Component{
     return(
       <Container style={{backgroundColor: '#fff'}}>
       <StatusBar hidden={true}/>
-        <Header style={Style.header}>
+        <Header noShadow style={Style.header}>
           <TouchableOpacity onPress={this.openDrawer}> 
             <Left>
-              <Icon name="align-justify" color="#1a1a1a" size={30} />
+              <Icon name="align-justify" color="#1a1a1a" size={25} />
             </Left>
           </TouchableOpacity> 
           <Body>
@@ -112,11 +112,6 @@ export default class CategoryProducts extends Component{
           </Right>
         </Header>
         <Content>
-          <SwipeableParallaxCarousel
-            data={datacarousel}
-            titleColor={"#fff"}
-            height={300}
-          />
         <TouchableOpacity 
           style={{
             width: '100%',
@@ -125,8 +120,8 @@ export default class CategoryProducts extends Component{
             alignItems: 'flex-start',
             marginLeft: 25
           }}>
-          <Text style={{ fontSize: 20, fontFamily: 'Lato Regular', color: '#000'}}>
-            {this.state.category_name}
+          <Text style={{ fontSize: 20, fontFamily: 'Lato-Regular', color: '#000'}}>
+            Most Recent
           </Text>
         </TouchableOpacity>
          < ScrollView  contentContainerStyle={Style.ItemCanvas}>
@@ -145,18 +140,17 @@ export default class CategoryProducts extends Component{
 const datacarousel = [
   {
     "id": 1,
-    "title": "ALGO ELEGANTE",
-    "imagePath": "https://des.gbtcdn.com/uploads/pdm-desc-pic/Electronic/image/2017/10/27/15090975277855.jpg"
+    "title": "Your investment journey starts here",
+    "imagePath": "http://pidelotu.azurewebsites.net/images/banner1.jpeg"
   },
   {
     "id": 2,
-    "title": "ALGO ELEGANTE",
-    "imagePath": "https://des.gbtcdn.com/uploads/pdm-desc-pic/Electronic/image/2017/10/27/15090975277855.jpg"
+    "title": "Your investment journey starts here",
+    "imagePath": "https://pidelotu.azurewebsites.net/images/banner2.jpeg"
   },
   {
     "id": 3,
-    "title": "ALGO ELEGANTE",
-    "imagePath": "https://des.gbtcdn.com/uploads/pdm-desc-pic/Electronic/image/2017/10/27/15090975277855.jpg"
+    "title": "Your investment journey starts here",
+    "imagePath": "https://pidelotu.azurewebsites.net/images/banner3.png"
   }
 ]
-

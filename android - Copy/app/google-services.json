@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "111972882157",
+    "firebase_url": "https://platinum-67485.firebaseio.com",
+    "project_id": "platinum-67485",
+    "storage_bucket": "platinum-67485.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111972882157:android:0d19c4a1673981ac",
+        "android_client_info": {
+          "package_name": "com.platinum_time"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111972882157-t61loeu9q5iadglec2i6o5nmhiq47d8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHU7FYfTCu_ooGqR34hM5BbDkaszpxIjs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111972882157:android:65d017006505f14a",
+        "android_client_info": {
+          "package_name": "platinum.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111972882157-t61loeu9q5iadglec2i6o5nmhiq47d8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHU7FYfTCu_ooGqR34hM5BbDkaszpxIjs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

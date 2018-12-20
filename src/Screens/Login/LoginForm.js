@@ -89,8 +89,8 @@ export default class LoginForm extends Component{
         <Form type={User} options={options} ref="login"/>
         <TouchableOpacity onPress={this.getInput}>
           <View style={Style.button}>
-            <Text style={Style.buttonText}>
-              LOG IN
+            <Text style={{color: '#fff', fontSize: 15}}>
+               LOG IN
             </Text>
           </View>
         </TouchableOpacity>
@@ -156,6 +156,7 @@ const Style = StyleSheet.create({
     marginTop: 20,
     backgroundColor: 'transparent',
     borderWidth: 1,
+    color: '#fff',
     alignSelf: 'center',
     borderColor: '#fff',
     width: 250,
@@ -166,7 +167,6 @@ const Style = StyleSheet.create({
     borderBottomRightRadius: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    padding: 25
 
   },
   buttonText:{

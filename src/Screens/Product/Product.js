@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import { Footer, Container, Header, Body, Left, Right, Content, Button } from 'native-base';
-import { StyleSheet,StatusBar, ImageBackground, ScrollView, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, ActivityIndicator, Alert } from 'react-native';
+import { StyleSheet,StatusBar, ImageBackground, ScrollView, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, ActivityIndicator, Alert, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import firebase from 'react-native-firebase'
 
@@ -88,7 +88,7 @@ export default class Product extends Component{
         'Platinum',
         'Succesfully added to favorites!',
         [
-          {text: 'Aceptar', onPress: () => console.log("Cerrar"),}
+          {text: 'Accept', onPress: () => console.log("Cerrar"),}
         ],
         { cancelable: false }
       )
@@ -163,7 +163,7 @@ export default class Product extends Component{
     body: JSON.stringify({
       email: this.state.user.email,
       name:  this.state.user.name,
-      phone: "1",
+      phone: " 1",
       product_id: this.state.clock_data.idProducts
     })
   })
@@ -200,15 +200,15 @@ export default class Product extends Component{
 
             <View style={Style.price_container}>
                 <Text style={Style.price_text}>
-                  $ {this.state.clock_data.public_price} USD
+                 $ { parseInt( this.state.clock_data.public_price).toFixed(2)  } USD
                 </Text>
             </View>
 
             <View style={Style.title_container}>
               <Text style={{marginLeft:50, fontSize: 25, fontFamily:'Lato-Regular', color:'#fff'}}>
-                Platinum
+                Name
               </Text>
-              <Text style={{paddingTop: 15,marginLeft:50, fontSize: 27, fontFamily:'Lato-Light', color:'#fff'}}>
+              <Text style={{paddingTop: 15,marginLeft:40, fontSize: 25, fontFamily:'Lato-Light', color:'#fff'}}>
                 {this.state.clock_data.name}
               </Text>
             </View>
@@ -243,7 +243,7 @@ export default class Product extends Component{
                   <Text style={Style.features_content}>
                     {this.state.clock_data.description}
                   </Text>     
-             </View>
+              </View>
 
             </View>
 
@@ -263,13 +263,14 @@ export default class Product extends Component{
   
   render(){
     return(
-      <Container>
-       <StatusBar hidden={true}/>
-        <Header  style={Style.header} >
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#000'}}>
+        <Container>
+        <StatusBar hidden={true}/>
+        <Header  noShadow style={Style.header} >
           <Left >
             <TouchableOpacity onPress={this.goBack}>
-              <View style={{padding: 15}}>
-              <Icon name="chevron-left" size={30} color={'#fff'} />
+              <View style={{padding: 5}}>
+              <Icon name="chevron-left" size={20} color={'#fff'} />
               </View>
             </TouchableOpacity>            
           </Left>
@@ -277,8 +278,8 @@ export default class Product extends Component{
           </Body>
           <Right >
             <TouchableOpacity onPress={this.addFavorite}>
-              <View style={{padding: 15}}>
-               <Icon name="heart" size={30} color={this.state.fav_color} />
+              <View style={{padding: 5}}>
+               <Icon name="heart" size={20} color={this.state.fav_color} />
               </View>
             </TouchableOpacity>
           </Right>
@@ -287,6 +288,7 @@ export default class Product extends Component{
           { this.renderProduct() }
         </Content>
       </Container>  
+      </SafeAreaView>
     )
   }
 }

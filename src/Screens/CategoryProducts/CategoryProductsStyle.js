@@ -3,10 +3,12 @@ import { StyleSheet } from 'react-native';
 export default Style = StyleSheet.create({
   header:{
     backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
     elevation: 0,
-    position: 'absolute',
-    zIndex: 30,
-    margin: 10
+    shadowColor: 'transparent',
+    zIndex: 1000,
+    minHeight: 10
   },
   homeHeader:{
     fontSize: 20,

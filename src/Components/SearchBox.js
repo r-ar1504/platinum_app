@@ -6,7 +6,7 @@ import { Container, Header, Body, Left, Right, Content, Button } from 'native-ba
 import { StyleSheet, ActivityIndicator, StatusBar, TextInput, ImageBackground, ScrollView, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, ActnativeivityIndicator, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Style from 'src/Screens/Search/SearchStyle'
+import Style from '../Screens/Search/SearchStyle'
 
 export default class SearchBox extends Component {
   constructor(props){

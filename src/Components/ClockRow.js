@@ -60,7 +60,7 @@ const Style = StyleSheet.create({
   clock_name:{
     color: '#000',
     fontSize: 20,
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Lato-Black',
   },
   clock_price:{
     marginTop: 10,

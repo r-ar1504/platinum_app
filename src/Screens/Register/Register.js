@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import { AppRegistry } from 'react-native';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import { Container, Header, Body, Left, Right, Content, Button } from 'native-base';
-import { StyleSheet,StatusBar, ImageBackground, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, ActnativeivityIndicator, Alert } from 'react-native';
+import { SafeAreaView, StyleSheet,StatusBar, ImageBackground, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, ActnativeivityIndicator, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import firebase from 'react-native-firebase';
 
@@ -111,13 +111,14 @@ export default class Register extends Component{
 
   render(){
     return(
-      <Container>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff'}}>
+        <Container>
         <StatusBar hidden={true}/>
         <Header style={Style.header}>
           <Left>
             <TouchableWithoutFeedback onPress={this.goBack}>
-              <View style={{marginTop: 20, marginLeft: 20}}>
-                <Icon name="angle-left" color={'#000'} size={40} />
+              <View style={{marginTop: 15, marginLeft: 20}}>
+                <Icon name="angle-left" color={'#000'} size={35} />
               </View>
             </TouchableWithoutFeedback>
           </Left>
@@ -135,6 +136,7 @@ export default class Register extends Component{
           <RegisterForm  handleRegister={this.handleRegister}/>
         </Content>
       </Container>
+      </SafeAreaView>
     )
   }//Render function.
 

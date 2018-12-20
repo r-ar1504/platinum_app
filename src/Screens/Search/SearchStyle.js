@@ -23,6 +23,7 @@ export default Style = StyleSheet.create({
     borderTopLeftRadius: 25 ,
   },
   ItemCanvas:{
+    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
@@ -33,8 +34,9 @@ export default Style = StyleSheet.create({
   formSection:{
     width: '100%',
     flexDirection: 'row',
-    flexWrap: 'nowrap',
-    height: 40
+    flexWrap: 'wrap',
+    alignItems: "center",
+    justifyContent: "center"
   },
   checkButtons:{
     flexDirection: 'column',

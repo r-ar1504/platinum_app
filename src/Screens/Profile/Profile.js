@@ -117,7 +117,7 @@ export default class Profile extends Component{
         <Content contentContainerStyle={Style.content}>
         
           <View>
-            <Image source={require('src/Assets/Images/logo.png')} style={Style.logo}/>
+            <Image source={require('../../Assets/Images/logo.png')} style={Style.logo}/>
               <Text style={{ 
                 color: '#fff', 
                 fontSize: 25, 

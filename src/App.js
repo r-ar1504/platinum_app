@@ -60,7 +60,7 @@ const HomeDrawer = DrawerNavigator({
   {
     initialRouteName: 'Home',
     contentComponent: SideMenu,
-    drawerBackgroundColor: 'rgba(0, 0, 0, 1)'
+    drawerBackgroundColor: '#000'
   }//Stack Options
 );
 
@@ -92,6 +92,6 @@ export default StackNavigator({
   }
 },//StackNavigator Options.
 {
-  initialRouteName: 'Login',
+  initialRouteName: 'Splash',
   headerMode: 'none'
 });//Stack Options);

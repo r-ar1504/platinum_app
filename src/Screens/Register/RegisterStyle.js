@@ -5,6 +5,7 @@ export default Style = StyleSheet.create({
     backgroundColor: 'transparent',
     elevation: 0,
     backgroundColor: '#fff',
+    borderBottomColor: '#fff'
   },
   container:{
     backgroundColor: '#fff',

@@ -63,13 +63,11 @@ export default class SideMenu extends Component{
   render(){
     return(
       <Container>
-        <Header noShadow style={style.header}>
 
-        </Header>
-        <Content>
+        <Content contentContainerStyle={{backgroundColor: '#000', height: '100%'}}>
 
           <View style={style.BussinesLogo}>
-            <Image source={require('src/Assets/Images/logo.png')} style={style.logo}/>
+            <Image source={require('../Assets/Images/logo.png')} style={style.logo}/>
           </View>
 
            <View style={style.links_container}>
@@ -117,22 +115,22 @@ export default class SideMenu extends Component{
           <View style={style.socialSection}>
             <View style={style.socialIcon}>
               <TouchableOpacity onPress={this.goToInsta}>
-                <Image style={style.imageSO} source={require('src/Assets/Images/insta.png')}/>
+                <Image style={style.imageSO} source={require('../Assets/Images/insta.png')}/>
               </TouchableOpacity>
             </View>
             <View style={style.socialIcon}>
               <TouchableOpacity onPress={this.goToFb}>
-                <Image style={style.imageSO} source={require('src/Assets/Images/fb.png')}/>
+                <Image style={style.imageSO} source={require('../Assets/Images/fb.png')}/>
               </TouchableOpacity>
             </View>
             <View style={style.socialIcon}>
               <TouchableOpacity onPress={this.goToWeb}>
-                <Image style={style.imageSO} source={require('src/Assets/Images/web.png')}/>
+                <Image style={style.imageSO} source={require('../Assets/Images/web.png')}/>
               </TouchableOpacity>
             </View>
             <View style={style.socialIcon}>
               <TouchableOpacity onPress={this.goToUs}>
-                <Image style={style.imageSO} source={require('src/Assets/Images/us.png')}/>
+                <Image style={style.imageSO} source={require('../Assets/Images/us.png')}/>
               </TouchableOpacity>
             </View>
           </View>

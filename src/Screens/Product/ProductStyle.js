@@ -2,11 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default Style = StyleSheet.create({
   header:{
-    backgroundColor: 'transparent',
+    backgroundColor: '#000',
     elevation: 0,
-    position: 'absolute',
     zIndex: 30,
-    margin: 10
+    borderBottomWidth: 0
   },
   logo:{
     width: 150,
@@ -17,7 +16,7 @@ export default Style = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#1a1a1a'
+    backgroundColor: '#000'
   },
   clock_image:{
     width:50,
@@ -50,7 +49,7 @@ export default Style = StyleSheet.create({
   },
   price_text:{
     color: '#fff',
-    fontSize: 30,
+    fontSize: 26,
     marginLeft: 10,
     fontFamily: 'Lato-Regular',
   },
@@ -75,7 +74,7 @@ export default Style = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'flex-start',
     borderRightWidth: .5,
-    borderRightColor: '#1a1a1a',
+    borderRightColor: '#000',
   },
   content_feature:{
     width:'50%',
@@ -119,7 +118,7 @@ export default Style = StyleSheet.create({
     alignItems: 'flex-start',
     marginLeft: 10,
     borderRightWidth: .5,
-    borderRightColor: '#1a1a1a',
+    borderRightColor: '#000',
   },
   features_section_right:{
     width: '55%',

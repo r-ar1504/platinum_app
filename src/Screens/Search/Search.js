@@ -5,17 +5,18 @@
 import React, {Component} from 'react';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import {  SwipeRow, Title, Footer, Container, Header, Body, Left, Right, Content, Button } from 'native-base';
-import { TextInput, BackHandler, StyleSheet,StatusBar, ImageBackground, ScrollView, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, ActivityIndicator, Alert } from 'react-native';
+import { TextInput, Dimensions, BackHandler, StyleSheet,StatusBar, ImageBackground, ScrollView, TouchableOpacity, TouchableWithoutFeedback, View, Text, Image, YellowBox, ActivityIndicator, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import ItemCard from 'src/Screens/Home/ItemCard';
+import ItemCard from '../../Screens/Home/ItemCard';
 import firebase from 'react-native-firebase';
 import RadioGroup,{Radio} from "react-native-radio-input";
 
+var {height, width} = Dimensions.get('window');
 
 /*-----------------------------------------------------------------
 * Default Components                                              |
 *-----------------------------------------------------------------*/
-import SearchBox from "src/Components/SearchBox"
+import SearchBox from "../../Components/SearchBox"
 
 /*-----------------------------------------------------------------
 * Style                                                           |
@@ -33,6 +34,7 @@ export default class Search extends Component{
       top: 10,
       low: 1000,
       high: 100000,
+      searchBy: "Name",
       genre: "Hombre"
     }//State definition.
 
@@ -40,6 +42,8 @@ export default class Search extends Component{
     this.fetchQuery  = this.fetchQuery.bind(this);
     this.goBack = this.goBack.bind(this);
     this.getChecked = this.getChecked.bind(this);
+    this.getSearch = this.getSearch.bind(this);
+
   }
 
 
@@ -54,6 +58,12 @@ export default class Search extends Component{
     })
   }
 
+  getSearch = (value) =>{
+    this.setState({
+      searchBy: value
+    })
+  }
+
   fetchQuery(query){
     this.setState({
       loading: true
@@ -64,16 +74,20 @@ export default class Search extends Component{
       value: query,
       genero: this.state.genre,
       min: parseInt(this.state.low),
-      max: parseInt(this.state.high)
+      max: parseInt(this.state.high),
+      searchBy: this.state.searchBy
     }
 
-    console.log(data)
+    console.warn(JSON.stringify(data));
     fetch ('http://platinum-web.azurewebsites.net/api/filterProducts',{ method: 'POST',
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
     body: JSON.stringify(data)
     })
     .then( (response) => response.json() )
     .then( (response) =>{
-      console.log(response.data);
+      console.warn(response);
         this.setState({
         items : response.data,
         loading: false
@@ -111,7 +125,7 @@ export default class Search extends Component{
           )
         }else{
           return(
-            <Text style={{fontSize: 20, padding: 40}}> No Hay Elementos </Text>
+            <Text style={{fontSize: 20, padding: 40}}> No Elements </Text>
           )
         }
 
@@ -120,7 +134,8 @@ export default class Search extends Component{
 
   render(){
     return(
-      <Container contentContainerStyle={{height: '100%'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#000'}}>
+        <Container contentContainerStyle={{height: '100%'}}>
         <StatusBar hidden={true}/>
         <Header style={Style.header}>
         <TouchableOpacity onPress={this.goBack}> 
@@ -167,7 +182,21 @@ export default class Search extends Component{
                  onChangeText={(value) => {this.setState({high: value})}}
                  keyboardType={"numeric"}
                 />
-                
+            </View>
+            <View style={{ width: '100%', paddingLeft: 20, display: "flex", flexDirection: "row", justifyContent:"center",alignItems:"center"}}>
+                <Text> Search By </Text>
+                <RadioGroup
+                    getChecked={this.getSearch}
+                    rowDirection="row"
+                    RadioGroupStyle={{
+                      flexDirection: 'row',
+                      height: 30
+                    }}
+                    labelStyle={{fontSize:12}}
+                  >
+                  <Radio iconName={"lens"} label={"Name"} value={"Name"} />
+                  <Radio iconName={"lens"} label={"Unique"} value={"Unique"} />
+                </RadioGroup>
             </View>
           </View>
           <ScrollView contentContainerStyle={Style.ItemCanvas}>
@@ -175,6 +204,7 @@ export default class Search extends Component{
           </ScrollView>
         </Content>
       </Container>
+      </SafeAreaView>
     )
   }
 
